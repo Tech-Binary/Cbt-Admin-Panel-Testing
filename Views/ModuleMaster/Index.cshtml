@@ -1,0 +1,75 @@
+﻿@model CbtAdminPanel.Models.MasterModel.ModuleMaster
+
+
+
+<div class="tab-pane" id="module-master" role="tabpanel" aria-labelledby="module-master-tab">
+    <div class="container p-0 projectContainer">
+              <form id="Modulefrom" asp-controller="ModuleMaster" asp-action="Create" enctype="multipart/form-data">
+        <div class="projectForm bg-light">
+            <div class="projectformHeading">
+                <h5 class="py-2 px-4">Add Module</h5>
+            </div>
+            <div class="ModuleFormContainer px-3 py-4">
+                <div>
+                        <select  class="arrowspace" asp-for="ProjectId" asp-items="@ViewBag.Project">
+                        <option value="Project">Please Select Project</option>
+                    </select>
+                    <input type="text" placeholder="Module Name" asp-for="ModuleName">
+                </div>
+
+                <textarea rows="4" cols="50" placeholder="Description type here..." class="my-3" asp-for="ModuleDescription"></textarea>
+                    <button id="btnsubmit" type="submit">Save</button>
+            </div>
+        </div>
+        </form>
+        <div class="projectTable mt-2 bg-light">
+            <div class="projectTableHeading">
+                <div>
+                    <h6>Module List</h6>
+                    <div class="search-container">
+                        <input type="text" class="search-input" placeholder="Search">
+                        <img src="./Images/search.png" alt="">
+                    </div>
+                </div>
+                <img src="./Images/filterIcon.png" alt="">
+            </div>
+            <table class="table table-striped">
+                <thead>
+                    <tr class="table-header">
+                        <th scope="col" class="px-4">Project</th>
+                        <th scope="col">Module Name</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in @ViewBag.ProjectMasterList)
+                    {
+                        <tr class="table-row">
+                            <td class="px-4">@item.ProjectName</td>
+                            <td>@item.ModuleName</td>
+                            <td>@item.ModuleDescription</td>
+                            <td>
+                                <img src="~/images/admin/visibilityIcon.png" alt="" class="actionIcons">
+                                <img src="~/images/admin/editIcon.png" alt="" class="actionIcons">
+                                <img src="~/images/admin/delete Icon.png" alt="" class="actionIcons">
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+@section Scripts
+ {
+    <script>
+        $(document).ready(function () {
+            $('.Masters-cls').removeClass('active');
+            $("#module-master-tab").addClass('active');
+        });
+
+    </script>
+}

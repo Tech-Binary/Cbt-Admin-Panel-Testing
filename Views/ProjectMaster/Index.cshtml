@@ -1,0 +1,109 @@
+﻿@model CbtAdminPanel.Models.MasterModel.ProjectMaster
+
+<div class="tab-pane fade show active" id="project-master">
+    <div class="container p-0 projectContainer">
+      <form id="Projectfrom" asp-controller="ProjectMaster" asp-action="Create" enctype="multipart/form-data">
+        <div class="projectForm bg-light">
+            <div class="projectformHeading">
+                <h5 class="py-2 px-4">Add Project</h5>
+            </div>
+            <div class="projectFormContainer px-3">
+                    <input type="hidden" id="ProjectMasterPostResonse" value="@ViewBag.Response" />
+                    <div>
+                        <label>ProjectName</label>
+                <input type="text" placeholder="Project Name" asp-for="ProjectName">
+                </div>
+                    <select class="arrowspace" placeholder="Location" asp-for="LocationId" asp-items="@ViewBag.Locations">
+                 <option value="">Please Select Location</option>
+                 </select>
+                    <input type="date" asp-for="ProjectDate">
+                    <button id="btnsubmit" type="submit">Save</button>
+            </div>
+        </div>
+        </form>
+        <div class="projectTable mt-2 bg-light">
+            <div class="projectTableHeading">
+                <div>
+                    <h6>Project List</h6>
+                    <div class="search-container">
+                        <input type="text" class="search-input" placeholder="Search">
+                        <img src="./Images/search.png" alt="">
+                    </div>
+                </div>
+                <img src="./Images/filterIcon.png" alt="">
+            </div>
+            <table class="table table-striped">
+                <thead>
+                    <tr class="table-header">
+                        <th scope="col" class="px-4">Project Name</th>
+                        <th scope="col">Project Location</th>
+                        <th scope="col">Opening Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in @ViewBag.ProjectMasterList)
+                    {
+                        <tr class="table-row">
+                            <td class="px-4">@item.ProjectName</td>
+                            <td>@item.LocationName</td>
+                            <td>@item.ProjectDate.ToString("dd/MM/yyyy")</td>
+                        </tr>
+                    }
+                    @*      <tr class="table-row">
+                        <td class="px-4">CBT</td>
+                        <td>Dubai</td>
+                        <td>01-01-2024</td>
+                    </tr>
+                    <tr class="table-row">
+                        <td class="px-4">CBT</td>
+                        <td>Dubai</td>
+                        <td>01-01-2024</td>
+                    </tr>
+                    <tr class="table-row">
+                        <td class="px-4">CBT</td>
+                        <td>Dubai</td>
+                        <td>01-01-2024</td>
+                    </tr>
+                    <tr class="table-row">
+                        <td class="px-4">CBT</td>
+                        <td>Dubai</td>
+                        <td>01-01-2024</td>
+                    </tr>
+                    <tr class="table-row">
+                        <td class="px-4">CBT</td>
+                        <td>Dubai</td>
+                        <td>01-01-2024</td>
+                    </tr>
+                    <tr class="table-row">
+                        <td class="px-4">CBT</td>
+                        <td>Dubai</td>
+                        <td>01-01-2024</td>
+                    </tr>
+                    <tr class="table-row">
+                        <td class="px-4">CBT</td>
+                        <td>Dubai</td>
+                        <td>01-01-2024</td>
+                    </tr>
+                    <tr class="table-row">
+                        <td class="px-4">CBT</td>
+                        <td>Dubai</td>
+                        <td>01-01-2024</td>
+                    </tr> *@
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script src="~/js/masters/projectmaster.js"></script>
+<script>
+        
+    $(document).ready(function () {
+            $('.Masters-cls').removeClass('active');
+            $("#project-master-tab").addClass('active');
+    });
+
+</script>
+}

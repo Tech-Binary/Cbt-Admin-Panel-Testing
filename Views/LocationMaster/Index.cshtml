@@ -1,0 +1,115 @@
+﻿@model CbtAdminPanel.Models.MasterModel.LocationMaster
+<div class="tab-pane" id="location-master" >
+    <div class="container p-0 projectContainer">
+        <form id="locationform" asp-controller="LocationMaster" asp-action="Create" enctype="multipart/form-data">
+        <div class="projectForm bg-light">
+            <div class="projectformHeading">
+                <h5 class="py-2 px-4">Add Location</h5>
+            </div>
+            <div class="locationMasterFormContainer px-3 mt-4">
+                    <input type="hidden" id="LocMasterPostResonse" value="@ViewBag.Response" />
+                    <select  asp-for="Locationprefix" class="arrowspace" asp-items="@ViewBag.Locations">
+                </select>
+                    <span asp-validation-for="Locationprefix" class="text-danger "></span>
+                <input type="text" placeholder="Location Id" asp-for="LocationId">
+                    <span asp-validation-for="LocationId" class="text-danger "></span>
+                <input type="text" placeholder="Location Name" asp-for="LocationName">
+                    <span asp-validation-for="LocationName" class="text-danger "></span>
+                <input type="text" placeholder="Address" asp-for="Address">
+                    <span asp-validation-for="Address" class="text-danger "></span>
+  @*               <select name="" id="" class="arrowspace">
+                    <option value="city">
+                        city
+                    </option>
+                </select> *@
+            </div>
+            <div class="locationMasterFormContainer px-3 mt-3">
+                    <select name="Country" asp-for="Country" class="arrowspace" asp-items="@ViewBag.CountryList" onchange="GetCityList()">
+                 <option value="">select country</option>
+                </select>
+                    <select asp-for="City" class="arrowspace">
+                </select>
+                <input type="text" placeholder="Postal Code" asp-for="PostalCode">
+                    <button id="btnsubmit" type="submit">Save</button>
+            </div>
+         @*    <div class="locationMasterFormContainer px-3 mt-3">
+                <select name="" id="" class="arrowspace">
+                    <option value="city">
+                        Created By
+                    </option>
+                </select>
+                <input type="date">
+                <select name="" id="" class="arrowspace">
+                    <option value="city">
+                        Last Modified By
+                    </option>
+                </select>
+                <input type="date">
+            </div> *@
+           @*  <div class="locationMasterFormContainer px-3 my-3">
+                <button>Save</button>
+            </div> *@
+        </div>
+        </form>
+        <div class="projectTable mt-2 bg-light">
+            <div class="projectTableHeading">
+                <div>
+                    <h6>Location List</h6>
+                    <div class="search-container">
+                        <input type="text" class="search-input" placeholder="Search">
+                        <img src="./Images/search.png" alt="">
+                    </div>
+                </div>
+                <img src="./Images/filterIcon.png" alt="">
+            </div>
+            <div style="overflow-x: auto; white-space: nowrap;">
+                <table class="table table-striped mt-2" style="width: 100%; min-width: 1400px;">
+                    <thead>
+                        <tr class="table-header">
+                            <th scope="col" class="px-4">Location ID</th>
+                            <th scope="col">Location Name</th>
+                            <th scope="col">Address</th>
+                            <th scope="col">City</th>
+                           @*  <th scope="col">State/Province</th> *@
+                            <th scope="col">Country</th>
+                            <th scope="col">Postal Code</th>
+                            <th scope="col">Created By</th>
+                            <th scope="col">Creation Date</th>
+                          @*   <th scope="col">Last Modified By</th>
+                            <th scope="col">Last Modified Date</th> *@
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in ViewBag.LocationMasterList)
+                        {
+                            <tr class="table-row">
+                                <td class="px-4">@item.Locationprefix@item.LocationId</td>
+                                <td>@item.LocationName</td>
+                                <td>@item.Address</td>
+                                <td>@item.CityName</td>
+                               @*  <td>Rajasthan</td> *@
+                                <td>@item.CountryName</td>
+                                <td>@item.PostalCode</td>
+                                <td>@item.CreatedBy</td>
+                                <td>@item.CreatedDate</td>
+                               @*  <td>Mellissa Adams</td>
+                                <td>25-07-2024</td> *@
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts
+{
+    <script src="~/js/masters/locationmaster.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.Masters-cls').removeClass('active');
+            $("#location-master-tab").addClass('active');
+        });
+
+    </script>
+}

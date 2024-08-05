@@ -1,0 +1,717 @@
+.pmMainContainer{
+    background-color: #EEEEEE;
+}
+.pmNavbar{
+    background-color: #212A5B;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 15px 25px;
+}
+.pmLogoContainer>img{
+    width: 300px;
+    height: 50px;
+}
+.pmLogoutBtn>button{
+    background-color: #F77728;
+    color: white;
+    padding: 8px 23px;
+    border: none;
+    border-radius: 8px;
+
+}
+.pmLogoutBtn>button>img{
+    margin-left: 10px;
+}
+
+/* -----------------------------------------------------buttons------------------------------------------- */
+.nav-tabs {
+    border-bottom: none;
+}
+.nav-item{
+    border-bottom: 1px solid #F2F2F2;
+}
+.nav-link {
+    border: none;
+    border-radius: 0;
+    color: black !important;
+    align-content: center;
+}
+.nav-link img {
+    transition: filter 0.3s ease;
+    height: 15px;
+    width: 13px;
+    margin: 6px;
+    margin-right: 15px;
+}
+
+
+.nav-link.active img {
+    filter: invert(1) brightness(2);
+}
+
+.nav-link.active {
+    background-color: #212A5B !important; 
+    color: white !important;
+    width: 95%;
+    margin: 10px 15px 10px 0px;
+    border-radius: 0px 30px 30px 0px !important;
+}
+    .nav-link.active {
+        background-color: #212A5B !important;
+        color: white !important;
+        width: 95%;
+        margin: 10px 15px 10px 0px;
+        border-radius: 0px 30px 30px 0px !important;
+    }
+
+/* Additional rules for nested tabs */
+.submenu .nav-link.active {
+    background-color: #212A5B !important; 
+    color: white !important;
+    margin: 5px 10px 5px 0px;
+    border-radius: 0px 15px 15px 0px !important;
+}
+
+.submenu .nav-link.active img {
+    filter: invert(1) brightness(2);
+}
+
+   
+.pmOptions{
+    background-color: white;
+    border-radius: 8px;
+}
+#pmDownarrow{
+    height: 8px;
+    width: 14px;
+    margin-left: 130px;
+}
+.pmroleManagement {
+    background-color: #FC9251 !important;
+    color: white !important;
+    width: 94%;
+    border-radius: 0px 25px 25px 0px !important;
+    margin-top: 2%;
+}  
+#roleDownarrow{
+    height: 8px;
+    width: 14px;
+    margin-left: 110px;
+    filter: invert(1) brightness(2);
+}
+.dropdownAdministration{
+    height: 65px;
+}
+
+/* -----------------------------------------------------buttons------------------------------------------- */
+
+
+/* -----------------------------------------------Project Master------------------------------------------------- */
+
+.projectContainer{
+    display: flex;
+    flex-direction: column;
+
+}
+.projectForm{
+    border-radius: 8px;
+}
+.projectformHeading{
+    color: white;
+    background-color: #6B78C2;
+    height: 45px;
+    border-radius: 8px 8px 0px 0px;
+}
+.projectFormContainer{
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    height: 90px;
+    align-items: center;
+    justify-content: space-around;
+}
+.projectFormContainer>input{
+    border: 1px solid #CCCCCC;
+    color: #B8B8B8;
+    width: 27%;
+    border-radius: 6px;
+    padding: 9px 23px;
+}
+    .projectFormContainer > select {
+        border: 1px solid #CCCCCC;
+        color: #B8B8B8;
+        width: 24%;
+        border-radius: 6px;
+        padding: 9px 23px;
+    }
+.projectFormContainer>button{
+    background-image: linear-gradient(to right, #212A5B, #4659C1);
+    /* background-color: #344290; */
+    color: white;
+    border-radius: 9px;
+    border: none;
+    padding: 9px 23px;
+    width: 13%;
+}
+.projectTable{
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 25px;
+    padding-bottom: 25px;
+}
+.projectTableHeading{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+
+}
+.projectTableHeading>div{
+    padding: 9px 10px;
+    display: flex;
+    flex-direction: row;
+    width: 95%;
+    justify-content: space-between;
+}
+.projectTableHeading>div>h6{
+    color: #212A5B;
+    padding: 9px 13px;
+}
+.projectTableHeading>h6{
+    color: #212A5B;
+    padding: 9px 13px;
+}
+.search-container {
+    display: flex;
+    align-items: center;
+    border: 1px solid #dce4ec;
+    border-radius: 30px;
+    padding: 2px 10px;
+    width: 300px;
+}
+
+.search-input {
+    border: none;
+    outline: none;
+    flex: 1;
+    border-radius: 30px;
+    padding: 5px 10px;
+}
+
+.search-icon {
+    color: #212A5B;
+    font-size: 1.2rem;
+    margin-left: 10px;
+    cursor: pointer;
+}
+.table thead th {
+    background-color: #dce4ec !important;
+    color: #000;
+}
+
+
+/* -----------------------------------------------Project Master------------------------------------------------- */
+
+
+/* -------------------------------------------------------------------Add Location------------------------------------------------ */
+
+.locationMasterFormContainer{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: fit-content;
+    align-items: center;
+    justify-content: space-between;
+}
+.locationMasterFormContainer1{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: fit-content;
+    align-items: center;
+    /* justify-content: space-between; */
+}
+.locationMasterFormContainer1>input{
+    border: 1px solid #CCCCCC;
+    color: #B8B8B8;
+    width: 24%;
+    border-radius: 6px;
+    padding: 9px 23px;
+}
+.locationMasterFormContainer1>select{
+    border: 1px solid #CCCCCC;
+    color: #B8B8B8;
+    width: 24%;
+    border-radius: 6px;
+    padding: 9px 23px;
+}
+.locationMasterFormContainer>input{
+    border: 1px solid #CCCCCC;
+    color: #B8B8B8;
+    width: 24%;
+    border-radius: 6px;
+    padding: 9px 23px;
+}
+.locationMasterFormContainer>select{
+    border: 1px solid #CCCCCC;
+    color: #B8B8B8;
+    width: 24%;
+    border-radius: 6px;
+    padding: 9px 23px;
+}
+.locationMasterFormContainer>button{
+    background-image: linear-gradient(to right, #212A5B, #4659C1);
+    color: white;
+    border-radius: 9px;
+    border: none;
+    padding: 9px 23px;
+    width: 13%;
+}
+
+/* -------------------------------------------------------------------Add Location------------------------------------------------ */
+
+
+/* ------------------------------------------------------Module Master---------------------------------------------- */
+
+.ModuleFormContainer{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    height: fit-content;
+    justify-content: space-around;
+}
+.ModuleFormContainer>div{
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.ModuleFormContainer>div>input{
+    border: 1px solid #CCCCCC;
+    width: 49%;
+    border-radius: 6px;
+    padding: 9px 23px;
+    outline: none;
+}
+.ModuleFormContainer>div>select{
+    border: 1px solid #CCCCCC;
+    width: 49%;
+    border-radius: 6px;
+    padding: 9px 23px;
+    outline: none;
+}
+.ModuleFormContainer>textarea{
+    width: 100%;
+    border: 1px solid #cccccc;
+    padding: 15px;
+    outline: none;
+    border-radius: 8px;
+}
+.ModuleFormContainer>button{
+    background-image: linear-gradient(to right, #212A5B, #4659C1);
+    color: white;
+    border-radius: 9px;
+    border: none;
+    padding: 9px 23px;
+    width: 13%;
+}
+.actionIcons{
+    width: 17px;
+    height: 14px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+/* ------------------------------------------------------Module Master---------------------------------------------- */
+
+
+/* ---------------------------------------------------------------------Role Master--------------------------------------------------- */
+
+
+.roleMasterFormContainer{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    height: fit-content;
+    justify-content: space-around;
+}
+.roleMasterFormContainer>div{
+    width: 75%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.roleMasterFormContainer>div>input{
+    border: 1px solid #CCCCCC;
+    width: 32%;
+    border-radius: 6px;
+    padding: 9px 23px;
+    outline: none;
+}
+.roleMasterFormContainer>textarea{
+    width: 100%;
+    border: 1px solid #cccccc;
+    padding: 15px;
+    outline: none;
+    border-radius: 8px;
+}
+.roleMasterSelectOptions{
+    width: 65% !important;
+}
+.roleMasterSelectOptions>select{
+    border: 1px solid #CCCCCC;
+    width: 39%;
+    border-radius: 6px;
+    padding: 9px 23px;
+    outline: none;
+}
+.roleMasterSelectOptions>button{
+    background-image: linear-gradient(to right, #212A5B, #4659C1);
+    color: white;
+    border-radius: 9px;
+    border: none;
+    padding: 9px 23px;
+    width: 17%;
+}
+
+
+/* ---------------------------------------------------------------------Role Master--------------------------------------------------- */
+
+
+.assignRoleFormContainer{
+    width: 48% !important;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.assignRoleFormContainer>select{
+    border: 1px solid #CCCCCC;
+    width: 50%;
+    border-radius: 6px;
+    padding: 9px 23px;
+    outline: none;
+}
+.assignRoleSaveButton{
+    background-image: linear-gradient(to right, #212A5B, #4659C1);
+    color: white;
+    border-radius: 9px;
+    border: none;
+    padding: 9px 23px;
+    width: 23%;
+}
+#assignRoleCancelBtn{
+    border: 2px solid #212A5B !important;
+    font-weight: bold;
+    color: #212A5B !important;
+    background-color: white !important;
+    border-radius: 9px;
+    border: none;
+    padding: 9px 23px;
+    width: 23%;
+}
+
+/* ----------------------------------------------------Assign Location----------------------------------------------- */
+
+
+.assignLocationFormContainer{
+    width: 60% !important;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.assignLocationFormContainer>select{
+    border: 1px solid #CCCCCC;
+    width: 39%;
+    border-radius: 6px;
+    padding: 9px 23px;
+    outline: none;
+}
+.assignLocationFormContainer>button{
+    background-image: linear-gradient(to right, #212A5B, #4659C1);
+    color: white;
+    border-radius: 9px;
+    border: none;
+    padding: 9px 23px;
+    width: 20%;
+}
+
+
+/* ----------------------------------------------------Assign Location----------------------------------------------- */
+
+
+
+/* --------------------------------------------------------User Permission------------------------------------------- */
+
+.dropdown {
+    background-color: #8EB3DD;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    width: 96%;
+    margin: auto;
+    margin-top: 1%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.checkboxSize {
+    height: 20px;
+    width: 20px;
+    margin-right: 10px; /* Space between checkbox and text */
+}
+.userPermissionLabels {
+    flex: 1;
+    margin: 0; /* Remove default margin of p element */
+}
+.dropdown-content {
+    display: none;
+    background-color: #f1f1f1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 96%;
+    margin: auto;
+}
+.custom-dropdown-content {
+    display: none;
+    width: 96%;
+    margin: auto;
+}
+.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.custom-table th, .custom-table td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+.custom-table th:first-child, .custom-table td:first-child {
+    width: 70%; /* Adjust the width of the first column */
+}
+.custom-table th:not(:first-child), .custom-table td:not(:first-child) {
+    width: 10%; /* Adjust the width of other columns */
+}
+.custom-table th {
+    background-color: #e1e5ee;
+    text-align: left;
+}
+.module {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+.module input[type="checkbox"] {
+    margin-right: 10px;
+}
+.module .permissions {
+    display: flex;
+    gap: 10px;
+}
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 25px;
+  }
+  
+  .switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #212A5B;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #4CAE10;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #4CAE10;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
+  /* --------------------------------------------------------User Permission------------------------------------------- */
+
+
+  .arrowspace {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4.094 2.446"><path fill="%23000" d="M2.047 2.446L0 0h4.094z"/></svg>') no-repeat right 30px center;
+    background-color: white;
+    background-size: 12px;
+    border: none; /* Add this if you want to remove default border styles */
+    padding-right: 40px; /* Ensure there's enough space for the arrow */
+}
+
+
+  /* -------------------------------------------Media Query------------------------------ */
+
+  @media (max-width: 1280px) {
+    .nav-link.active {
+        width: 85%;
+    }
+
+}
+
+  /* Large Devices (Desktops) */
+@media (max-width: 1024px) {
+    
+
+    .nav-link.active {
+        width: 66%;
+    }
+    .pmroleManagement {
+        width: 65%;
+    }
+    .submenu .nav-link.active {
+        width: 45% !important;
+        margin-left: 0px !important;
+    }
+    .assignRoleFormContainer {
+        width: 65% !important;
+    }
+}
+
+
+/* Small Devices (Tablets) */
+@media (max-width: 768px) {
+   
+    .nav-link.active {
+        width: 48%;
+    }
+    .projectFormContainer {
+        width: 100%;
+    }
+    .projectFormContainer>button {
+        padding: 9px 13px;
+    }
+    .ModuleFormContainer>div {
+        width: 75%;
+    }
+    .ModuleFormContainer>button {
+        width: 36%;
+    }
+    .assignLocationFormContainer {
+        width: 100% !important;
+    }
+    .pmroleManagement {
+        width: 47%;
+    }
+    .submenu .nav-link {
+        width: 45% !important;
+        margin-left: 0px !important;
+
+    }
+    .submenu .nav-link.active {
+        width: 45% !important;
+        margin-left: 0px !important;
+    }
+    .roleMasterFormContainer>div {
+        width: 100%;
+    }
+    .roleMasterSelectOptions {
+        width: 100% !important;
+    }
+    .assignRoleFormContainer {
+        width: 80% !important;
+    }
+}
+
+/* Mobile Devices*/
+@media (max-width: 480px) {
+
+    .pmNavbar{
+        flex-direction: column;
+    }
+    .pmLogoutBtn{
+        margin-top: 3%;
+    }
+    .nav-link.active {
+        width: 95%;
+    }
+    .tab-content{
+        margin-top: 5%;
+    }
+    .projectFormContainer>button {
+        padding: 9px 8px;
+    }
+    .projectTableHeading{
+        flex-direction: column;
+    }
+    .projectTableHeading>div{
+        flex-direction: column;
+    }
+    .projectTableHeading>img{
+        height: 55px;
+        width: 55px;
+        margin-left: 2%;
+    }
+    .locationMasterFormContainer{
+        flex-direction: column;
+    }
+    .locationMasterFormContainer>input{
+        width: 90%;
+        margin-top: 2%;
+    }
+    .locationMasterFormContainer>select{
+        width: 90%;
+        margin-top: 2%;
+    }
+    .locationMasterFormContainer>button{
+        width: 45%;
+    }
+    .ModuleFormContainer>div {
+        width: 100%;
+    }
+
+    .submenu .nav-link {
+        width: 94% !important;
+        margin-left: 0px !important;
+    }
+    .assignRoleFormContainer {
+        width: 100% !important;
+    }
+
+}
+
+  /* -------------------------------------------Media Query------------------------------ */

@@ -1,0 +1,189 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Manager</title>
+    <link href="~/css/projectmanager.css" rel="stylesheet" />
+   @*  <link rel="stylesheet" href="./ProjectManager.css"> *@
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+</head>
+<body>
+    <div class="pmMainContainer">
+        <div class="pmNavbar container-fluid">
+            <div class="pmLogoContainer">
+                <img src="~/images/admin/BBTLogo.png" alt="">
+             
+            </div>
+            <div class="pmLogoutBtn">
+                <button>Logout <img src="~/images/admin/logoutIcon.png" alt=""></button>
+            </div>
+        </div>
+        <div class="container-fluid px-4 mt-4">
+            <div class="row">
+                <div class="col-md-3 px-2">
+                    <ul class="nav flex-column nav-tabs pmOptions" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link py-3 d-flex align-items-center  Masters-cls" id="project-master-tab" asp-controller="ProjectMaster" asp-action="Index">
+                                <img src="~/images/admin/Project.png" alt=""> Project Master
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link py-3 d-flex align-items-center Masters-cls" id="location-master-tab" asp-controller="LocationMaster" asp-action="Index">
+                                <img src="~/images/admin/location.png" alt=""> Location Master
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link py-3 d-flex align-items-center Masters-cls" id="module-master-tab" asp-controller="ModuleMaster" asp-action="Index">
+                                <img src="~/images/admin/module.png" alt=""> Module Master
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center py-3" id="administration-tab" data-toggle="collapse" href="#administration-menu" role="button" aria-expanded="false" aria-controls="administration-menu">
+                                <img src="~/images/admin/administration.png" alt="" class="mr-2"> Administration
+                                <img src="~/images/admin/downArrow.png" id="pmDownarrow" alt="">
+                            </a>
+                            <div class="collapse" id="administration-menu">
+                                <ul class="nav flex-column submenu">
+                                    <li class="nav-item">
+                                        <a class="nav-link d-flex align-items-center py-2 pmroleManagement" id="role-management-tab" data-toggle="collapse" href="#role-management-menu" role="button" aria-expanded="false" aria-controls="role-management-menu">
+                                            <img src="~/images/admin/roleManagement.png" alt="" class="mr-2"> Role Management
+                                            <img src="~/images/admin/downArrow.png" id="roleDownarrow" alt="">
+                                        </a>
+                                        <div class="collapse" id="role-management-menu">
+                                            <ul class="nav flex-column submenu">
+                                                <li class="nav-item">
+                                                    <a class="nav-link d-flex align-items-center py-2 w-75 m-auto dropdownAdministration" id="user-master-tab" data-toggle="tab" href="#user-master" role="tab" aria-controls="user-master">
+                                                        <img src="~/images/admin/user.png" alt="" class="mr-2"> User Master
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link d-flex align-items-center py-2 w-75 m-auto dropdownAdministration" id="role-master-tab" data-toggle="tab" href="#role-master" role="tab" aria-controls="role-master">
+                                                        <img src="~/images/admin/role_master.png" alt="" class="mr-2"> Role Master
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link d-flex align-items-center py-2 w-75 m-auto dropdownAdministration" id="assign-roles-tab" data-toggle="tab" href="#assign-roles" role="tab" aria-controls="assign-roles">
+                                                        <img src="~/images/admin/assign_role.png" alt="" class="mr-2"> Assign Roles
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link d-flex align-items-center py-2 w-75 m-auto dropdownAdministration" id="user-permission-tab" data-toggle="tab" href="#user-permission" role="tab" aria-controls="user-permission" aria-selected="false">
+                                                        <img src="~/images/admin/user_permission.png" alt="" class="mr-2"> User Permission
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link d-flex align-items-center py-3" id="administration-tab" data-toggle="collapse" href="#SeriesMastersList-menu" role="button" aria-expanded="false" aria-controls="administration-menu">
+                                <img src="~/images/admin/administration.png" alt="" class="mr-2">Series Masters
+                                <img src="~/images/admin/downArrow.png" id="pmDownarrow" alt="">
+                            </a>
+                            <div class="collapse" id="SeriesMastersList-menu">
+                                <ul class="nav flex-column submenu">
+                                    <li class="nav-item">
+                                        <a class="nav-link d-flex align-items-center py-2 w-75 m-auto dropdownAdministration" id="LocationSeries-master-tab" asp-controller="LocationSeries" asp-action="Index">
+                                            <img src="~/images/admin/user.png" alt="" class="mr-2">  Location Series
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link py-3 d-flex align-items-center" id="assign-location-tab" data-toggle="tab" href="#assign-location" role="tab" aria-controls="module-master" aria-selected="false"> 
+                                <img src="~/images/admin/assign_location.png" alt=""> Assign Location
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link py-3 d-flex align-items-center" id="content-master-tab" data-toggle="tab" href="#content-master" role="tab" aria-controls="content-master" aria-selected="false"> 
+                                <img src="~/images/admin/content.png" alt=""> Content Master
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link py-3 d-flex align-items-center" id="customer-master-tab" data-toggle="tab" href="#customer-master" role="tab" aria-controls="customer-master" aria-selected="false"> 
+                                <img src="~/images/admin/cutsomer.png" alt=""> Customer Master
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link py-3 d-flex align-items-center" id="supplier-master-tab" data-toggle="tab" href="#supplier-master" role="tab" aria-controls="supplier-master" aria-selected="true"> 
+                                <img src="~/images/admin/Supplier.png" alt=""> Supplier Master
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link py-3 d-flex align-items-center" id="inventory-master-tab" data-toggle="tab" href="#inventory-master" role="tab" aria-controls="inventory-master" aria-selected="false"> 
+                                <img src="~/images/admin/inventory.png" alt=""> Inventory Master
+                            </a>
+                        </li>
+                    </ul>
+                    
+                </div>
+                <div class="col-md-9 px-2">
+                <div class="container">
+                    <main role="main" class="pb-3">
+                        @RenderBody()
+                    </main>
+                </div>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    @* <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script> *@
+    <script src="https://cdn.jsdelivr.net/npm/popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+    <script>
+     $(document).ready(function () {
+    $('#role-management-tab').on('show.bs.collapse', function () {
+        $('#administration-menu').collapse('show');
+    });
+
+    $('.dropdownAdministration').on('click', function () {
+        var target = $(this).attr('href');
+        $('.tab-pane').removeClass('show active');
+        $(target).addClass('show active');
+        // Remove active class from all dropdown links and add to the clicked one
+        $('.dropdownAdministration').removeClass('active');
+        $(this).addClass('active');
+    });
+            $('.Masters-cls').on('click', function () {
+                // Remove active class from all dropdown links and add to the clicked one
+                $('.Masters-cls').removeClass('active');
+                $(this).addClass('active');
+            });
+
+    // Handle main tab clicks
+    $('.dropdownAdministration').on('click', function () {
+                var target = $(this).attr('href');
+                $('.tab-pane').removeClass('show active');
+                $(target).addClass('show active');
+            });
+        });
+
+    //Handle administration tab click
+    $('#administration-tab').on('click', function () {
+        // Toggle the active class for administration tab
+        $(this).toggleClass('active');
+        // Ensure other nav links do not have the active class
+        $('.nav-tabs .nav-link').not(this).removeClass('active');
+    });
+
+
+   
+        document.querySelectorAll('.dropdown').forEach(dropdown => {
+            dropdown.addEventListener('click', () => {
+                const content = dropdown.nextElementSibling;
+                content.style.display = content.style.display === 'block' ? 'none' : 'block';
+            });
+        });
+
+
+    </script>
+</body>
+</html>

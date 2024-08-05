@@ -1,0 +1,54 @@
+﻿@model CbtAdminPanel.Models.MasterModel.MasterSeries.LocationSeries
+
+<div class="tab-pane fade show active" id="project-master">
+    <div class="container p-0 projectContainer">
+        <form asp-controller="LocationSeries" asp-action="Create" method="post">
+            <input type="hidden" id="LocSeriesPostResonse" value="@ViewBag.Response" />
+        <div class="projectForm bg-light">
+            <div class="projectformHeading">
+                <h5 class="py-2 px-4">Add Location Series</h5>
+            </div>
+            <div class="projectFormContainer px-3">
+                <input type="text" placeholder="Location Series" id="LocationSeriesName" name="LocName">
+                <button type="submit">Save</button>
+            </div>
+        </div>
+        </form>
+        <div class="projectTable mt-2 bg-light">
+            <div class="projectTableHeading">
+                <div>
+                    <h6>Location Series List</h6>
+                    <div class="search-container">
+                        <input type="text" class="search-input" placeholder="Search">
+                        <img src="./Images/search.png" alt="">
+                    </div>
+                </div>
+                <img src="./Images/filterIcon.png" alt="">
+            </div>
+            <table class="table table-striped">
+                <thead>
+                    <tr class="table-header">
+                        <th scope="col" class="px-4">Location Series Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in ViewBag.LocationSeriesList)
+                    {
+                        <tr class="table-row">
+                            <td class="px-4">@item.LocName</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script src="~/js/masters/locationseries.js"></script>
+    <script>
+       
+        
+    </script>
+}
