@@ -12,7 +12,7 @@ namespace CbtAdminPanel.Models.MasterModel.MasterSeries
         [Key]
         public int Id { get; set; }
         [Required]
-        public string LocName { get; set; }
+        public string? LocName { get; set; }
 
         public DateTime CreatedDate { get; set; }
         public int Createdby { get; set; }
