@@ -51,6 +51,7 @@ builder.Services.AddScoped<ILocationMasterRepository, LocationMasterRepository>(
 builder.Services.AddScoped<IProjectMasterRepository, ProjectMasterRepository>();
 builder.Services.AddScoped<IModuleMasterRepository, ModuleMasterRepository>();
 builder.Services.AddScoped<IAccountRepository, AccountRepository>();
+builder.Services.AddScoped<IRoleRepository, RoleRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 

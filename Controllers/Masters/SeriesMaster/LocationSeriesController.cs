@@ -1,4 +1,5 @@
-﻿using CbtAdminPanel.Interface.IMaster;
+﻿using CbtAdminPanel.Interface;
+using CbtAdminPanel.Interface.IMaster;
 using CbtAdminPanel.Models;
 using CbtAdminPanel.Models.MasterModel.MasterSeries;
 using Microsoft.AspNetCore.Mvc;
@@ -8,15 +9,13 @@ using System;
 
 namespace CbtAdminPanel.Controllers.Masters.SeriesMaster
 {
-    public class LocationSeriesController : Controller
+    public class LocationSeriesController : BaseController
     {
         private readonly ILocationSeriesRepository _repository;
 
- 
-        public LocationSeriesController(ILocationSeriesRepository repository,MyDbcontext _context)
+        public LocationSeriesController(ILocationSeriesRepository repository, IHttpContextAccessor contextAccessor, IConfiguration configuration, MyDbcontext context, IWebHostEnvironment hostingEnvironment) : base(hostingEnvironment, contextAccessor, configuration, context)
         {
             _repository = repository;
-            
         }
         public IActionResult Index()
         {

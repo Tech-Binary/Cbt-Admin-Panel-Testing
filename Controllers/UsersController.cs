@@ -7,9 +7,9 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace CbtAdminPanel.Controllers
 {
-    
+
     [Route("api/[controller]")]
-   // [ApiController, Authorize]
+    [ApiController, Authorize]
     public class UsersController : BaseController
     {
         private readonly IUserRepository _repository;
@@ -20,12 +20,26 @@ namespace CbtAdminPanel.Controllers
 
         [HttpPost]
         [Route("GetUser")]
-        public ResponseModel GetUserInfo([FromBody]Users res)
+        public ResponseModel GetUserInfo([FromBody] Users res)
         {
             ResponseModel result = _repository.getuserdata(res.Id);
             return result;
         }
 
+        [HttpPost]
+        [Route("GetUserList")]
+        public List<Users> GetUserList()
+        {
+            return _repository.GetUserList();
+        }
+
+        [HttpPost]
+        [Route("CreateUser")]
+        public ResponseModel CreateUser([FromBody] Users user)
+        {
+            ResponseModel res =_repository.CreateUser(user);
+            return res;
+        }
 
 
     }
