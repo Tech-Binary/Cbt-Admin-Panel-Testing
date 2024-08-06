@@ -2,6 +2,7 @@
 using CbtAdminPanel.Interface.IMaster;
 using CbtAdminPanel.Models;
 using CbtAdminPanel.Models.MasterModel.MasterSeries;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
@@ -9,6 +10,8 @@ using System;
 
 namespace CbtAdminPanel.Controllers.Masters.SeriesMaster
 {
+    [Route("api/[controller]")]
+    [ApiController, Authorize]
     public class LocationSeriesController : BaseController
     {
         private readonly ILocationSeriesRepository _repository;

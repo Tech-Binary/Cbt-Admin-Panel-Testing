@@ -54,6 +54,7 @@ namespace CbtAdminPanel.Repository
             {
                 user.CreatedDate = DateTime.Now;
                 user.CreatedBy = Convert.ToInt32(_contextAccessor.HttpContext.Session.GetString("UserID"));
+                user.AccountStatus =0;
                 user.LocationId = "";
                 _context.Add(user);
                 _context.SaveChanges();
