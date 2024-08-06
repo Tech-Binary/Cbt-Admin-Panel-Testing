@@ -35,5 +35,21 @@ namespace CbtAdminPanel.Controllers.Masters.SeriesMaster
             TempData["Response"]=JsonConvert.SerializeObject(response);
             return RedirectToAction("Index");
         }
+
+
+        [Route("LocationSeriesList")]
+        [HttpPost]
+        public List<LocationSeries> AllDataList()
+        {
+            return _repository.AllDataList();
+        }
+
+        [Route("LocationSeriesCreate")]
+        [HttpPost]
+        public ResponseModel LocationSeriesCreate(LocationSeries locationSeries)
+        {
+            ResponseModel response = _repository.AddData(locationSeries);
+            return response;
+        }
     }
 }

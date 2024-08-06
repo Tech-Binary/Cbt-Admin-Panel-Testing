@@ -7,5 +7,7 @@ namespace CbtAdminPanel.Interface
         ResponseModel getuserdata(int id);
 
         List<Users> GetUserList();
+
+        ResponseModel CreateUser(Users user);
     }
 }

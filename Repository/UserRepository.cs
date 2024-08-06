@@ -47,7 +47,7 @@ namespace CbtAdminPanel.Repository
         }
 
 
-        public ResponseModel CreateRole(Users user)
+        public ResponseModel CreateUser(Users user)
         {
             ResponseModel responseModel = new ResponseModel();
             try
