@@ -19,12 +19,13 @@ namespace CbtAdminPanel.Repository.Masters
     {
         private readonly MyDbcontext _context;
         public readonly IConfiguration _configuration;
+        public readonly IHttpContextAccessor _contextAccessor;
 
-        public LocationMasterRepository(MyDbcontext context, IConfiguration configuration)
+        public LocationMasterRepository(MyDbcontext context, IConfiguration configuration, IHttpContextAccessor contextAccessor)
         {
             _context = context;
             _configuration = configuration;
-
+            _contextAccessor = contextAccessor;
         }
 
         public ResponseModel AddData(LocationMaster locationMaster)
@@ -34,7 +35,7 @@ namespace CbtAdminPanel.Repository.Masters
             {
 
                 locationMaster.CreatedDate = DateTime.Now;
-                locationMaster.CreatedBy = 1;
+                locationMaster.CreatedBy = Convert.ToInt32(_contextAccessor.HttpContext.Session.GetString("UserID"));
                 locationMaster.State = 1;
                 //locationMaster.City = 1;
                 _context.Add(locationMaster);
@@ -46,7 +47,7 @@ namespace CbtAdminPanel.Repository.Masters
                 }
                 else
                 {
-                    responseModel.Message = "Something went Wrong";
+                    responseModel.Message = "Something went Wrong"; 
                     responseModel.Status = StatusEnums.error.ToString();
                 }
 
