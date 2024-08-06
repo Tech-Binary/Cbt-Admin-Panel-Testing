@@ -14,10 +14,12 @@ namespace CbtAdminPanel.Repository.Masters
     public class LocationSeriesRepository : ILocationSeriesRepository
     {
         private readonly MyDbcontext _context;
+        public readonly IHttpContextAccessor _contextAccessor;
 
-        public LocationSeriesRepository(MyDbcontext context)
+        public LocationSeriesRepository(MyDbcontext context, IHttpContextAccessor contextAccessor)
         {
             _context = context;
+            _contextAccessor = contextAccessor;
         }
         public ResponseModel AddData(LocationSeries locationSeries)
         {
@@ -32,7 +34,7 @@ namespace CbtAdminPanel.Repository.Masters
                     return responseModel;
                 }
                 locationSeries.CreatedDate = DateTime.Now;
-                locationSeries.Createdby = 1;
+                locationSeries.Createdby = Convert.ToInt32(_contextAccessor.HttpContext.Session.GetString("UserID"));
                 locationSeries.Active = true;
                 _context.Add(locationSeries);
                 _context.SaveChanges();
