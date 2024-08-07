@@ -47,9 +47,9 @@ namespace CbtAdminPanel.Controllers
             if (_contextAccessor != null && _contextAccessor.HttpContext != null)
             {
                 var tokenHandler = new JwtSecurityTokenHandler();
-                JWTSettings settings = _configuration.GetSection("JWT").Get<JWTSettings>();
-                var SecretKey = settings.Secret;
-                var key = Encoding.ASCII.GetBytes(SecretKey);
+                JwtSettings settings = _configuration.GetSection("JWT").Get<JwtSettings>();
+                var SecretKey = settings;
+                var key = Encoding.ASCII.GetBytes("Harshit6h777b76r65dbw4@@@@567567Harshit6h777b76r65dbw4@@@@567567");
                 token = _contextAccessor.HttpContext.Request.Headers["Authorization"].ToString();
                 token = token.Replace("Bearer ", "");
 
@@ -59,9 +59,9 @@ namespace CbtAdminPanel.Controllers
                     ValidateAudience = true,
                     ValidateLifetime = true,
                     ValidateIssuerSigningKey = true,
-                    ValidIssuer = settings.ValidIssuer,
-                    ValidAudience = settings.ValidAudience,
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(settings.Secret))
+                    ValidIssuer = "harshitissue",
+                    ValidAudience = "HarshitAudience",
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("Harshit6h777b76r65dbw4@@@@567567Harshit6h777b76r65dbw4@@@@567567"))
                 }, out SecurityToken validatedToken);
 
 

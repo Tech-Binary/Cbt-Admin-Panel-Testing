@@ -27,6 +27,13 @@ namespace CbtAdminPanel.Repository.Masters
             ResponseModel responseModel = new ResponseModel();
             try
             {
+                var check=_context.Roles.Where(r => r.Name == ROLE.Name).FirstOrDefault();
+                if (check != null)
+                {
+                    responseModel.Message = "Role already exists";
+                    responseModel.Status = StatusEnums.warning.ToString();
+                    return responseModel;
+                }
                 ROLE.CreatedDate = DateTime.Now;
                 ROLE.CreatedBy =Convert.ToInt32(_contextAccessor.HttpContext.Session.GetString("UserID"));
                 _context.Add(ROLE);

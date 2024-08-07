@@ -10,8 +10,8 @@ using System;
 
 namespace CbtAdminPanel.Controllers.Masters.SeriesMaster
 {
-    //[Route("api/[controller]")]
-    //[ApiController, Authorize]
+    [Route("api/[controller]")]
+    [ApiController, Authorize]
     public class LocationSeriesController : BaseController
     {
         private readonly ILocationSeriesRepository _repository;

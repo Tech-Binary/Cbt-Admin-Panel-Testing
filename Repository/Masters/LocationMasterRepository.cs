@@ -15,6 +15,7 @@ using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace CbtAdminPanel.Repository.Masters
 {
+
     public class LocationMasterRepository : ILocationMasterRepository
     {
         private readonly MyDbcontext _context;

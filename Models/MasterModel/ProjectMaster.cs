@@ -7,7 +7,7 @@ namespace CbtAdminPanel.Models.MasterModel
     {
         [Key]
         public int Id { get; set; }
-        public string ProjectName { get; set; }
+        public string? ProjectName { get; set; }
         public int LocationId { get; set; }
 
         public DateTime ProjectDate { get; set; }

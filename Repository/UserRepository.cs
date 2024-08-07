@@ -43,7 +43,19 @@ namespace CbtAdminPanel.Repository
 
         public List<Users> GetUserList()
         {
-            return _context.Users.ToList();
+            var users = (from user in _context.Users
+                         join role in _context.Roles on user.Role equals role.Id
+                         select (new Users
+                         {
+                             Id = user.Id,
+                             FullName = user.FullName,
+                             UserName=user.UserName,
+                             Email=user.Email,
+                             RoleName = role.Name,
+                             Role=user.Role,
+                             AccountStatus=user.AccountStatus
+                         })).ToList();
+            return users;
         }
 
 
@@ -52,6 +64,13 @@ namespace CbtAdminPanel.Repository
             ResponseModel responseModel = new ResponseModel();
             try
             {
+                var usercheck=_context.Users.Where(x=>x.UserName==user.UserName).FirstOrDefault();
+                if (usercheck != null)
+                {
+                    responseModel.Message = "UserName already here";
+                    responseModel.Status = StatusEnums.warning.ToString();
+                    return responseModel;
+                }
                 user.CreatedDate = DateTime.Now;
                 user.CreatedBy = Convert.ToInt32(_contextAccessor.HttpContext.Session.GetString("UserID"));
                 user.AccountStatus =0;

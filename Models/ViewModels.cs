@@ -24,7 +24,7 @@
         public string token { get; set; }
     }
 
-    public class JWTSettings
+    public class response
     {
         public string ValidAudience { get; set; }
         public string ValidIssuer { get; set; }

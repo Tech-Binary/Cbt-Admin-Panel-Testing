@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CbtAdminPanel.Models
 {
@@ -16,6 +17,9 @@ namespace CbtAdminPanel.Models
         public DateTime CreatedDate { get; set; }
 
         public string? LocationId { get; set; }
+
+        [NotMapped]
+        public string RoleName { get; set; }
     }
 
     public class Roles
