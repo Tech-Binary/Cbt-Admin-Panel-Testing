@@ -19,7 +19,7 @@ namespace CbtAdminPanel.Models
         public string? LocationId { get; set; }
 
         [NotMapped]
-        public string RoleName { get; set; }
+        public string? RoleName { get; set; }
     }
 
     public class Roles
