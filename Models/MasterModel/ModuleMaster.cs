@@ -9,12 +9,12 @@ namespace CbtAdminPanel.Models.MasterModel
         public int Id { get; set; }
 
         public int ProjectId { get; set; }
-        public string ModuleName { get; set; }
-        public string ModuleDescription { get; set; }
+        public string? ModuleName { get; set; }
+        public string? ModuleDescription { get; set; }
         public int CreatedBy { get; set; }
         public DateTime CreatedDate { get; set; }
 
         [NotMapped]
-        public string ProjectName { get; set; }
+        public string? ProjectName { get; set; }
     }
 }

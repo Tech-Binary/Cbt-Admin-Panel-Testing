@@ -8,13 +8,13 @@ namespace CbtAdminPanel.Models.MasterModel
         [Key]
         public int Id { get; set; }
         [Required]
-        public string Locationprefix { get; set; }
+        public string? Locationprefix { get; set; }
         [Required]
-        public string LocationId { get; set; }
+        public string? LocationId { get; set; }
         [Required]
-        public string LocationName { get; set; }
+        public string? LocationName { get; set; }
         [Required]
-        public string Address { get; set; }
+        public string? Address { get; set; }
         [Required]
         public int City { get; set; }
         public int State { get; set; }
@@ -22,18 +22,18 @@ namespace CbtAdminPanel.Models.MasterModel
         [Required]
         public int Country { get; set; }
         [Required]
-        public string PostalCode { get; set; }
+        public string? PostalCode { get; set; }
         public int CreatedBy { get; set; }
         public DateTime CreatedDate { get; set; }
         public int LastModeifiedBy { get; set; }
         public DateTime LastModeifiedDate { get; set; }
         [NotMapped]
 
-        public string CityName { get; set; }
+        public string? CityName { get; set; }
 
         [NotMapped]
 
-        public string CountryName { get; set; }
+        public string? CountryName { get; set; }
 
     }
 }

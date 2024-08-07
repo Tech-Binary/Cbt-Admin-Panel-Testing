@@ -15,6 +15,6 @@ namespace CbtAdminPanel.Models.MasterModel
         public DateTime CreatedDate { get; set; }
 
         [NotMapped]
-        public string LocationName { get; set; }
+        public string? LocationName { get; set; }
     }
 }
