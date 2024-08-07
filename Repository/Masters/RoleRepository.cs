@@ -19,7 +19,17 @@ namespace CbtAdminPanel.Repository.Masters
 
         public List<Roles> GetRoles()
         {
-            return _context.Roles.ToList();
+            var roles = (from role in _context.Roles
+                         join user in _context.Users on role.CreatedBy equals user.Id
+                         select (new Roles
+                         {
+                             Id = role.Id,
+                             Name = role.Name,
+                             CreatedBy = role.CreatedBy,
+                             CreatedDate = role.CreatedDate,
+                             UserName = user.UserName
+                         })).ToList();
+            return roles;
         }
 
         public ResponseModel CreateRole(Roles ROLE)

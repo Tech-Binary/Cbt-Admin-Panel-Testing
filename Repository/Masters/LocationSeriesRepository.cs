@@ -1,5 +1,6 @@
 ﻿using CbtAdminPanel.Constant;
 using CbtAdminPanel.Interface.IMaster;
+using CbtAdminPanel.Migrations;
 using CbtAdminPanel.Models;
 using CbtAdminPanel.Models.MasterModel;
 using CbtAdminPanel.Models.MasterModel.MasterSeries;
@@ -60,7 +61,17 @@ namespace CbtAdminPanel.Repository.Masters
 
         public List<LocationSeries> AllDataList()
         {
-            return _context.LocationSeries.ToList();
+            var roles = (from LocationSeries in _context.LocationSeries
+                         join user in _context.Users on LocationSeries.Createdby equals user.Id
+                         select (new LocationSeries
+                         {
+                             Id = LocationSeries.Id,
+                             LocName = LocationSeries.LocName,
+                             Createdby = LocationSeries.Createdby,
+                             CreatedDate = LocationSeries.CreatedDate,
+                             UserName = user.UserName
+                         })).ToList();
+            return roles;
         }
 
         public List<SelectListItem> LocSeriesDropDownList()

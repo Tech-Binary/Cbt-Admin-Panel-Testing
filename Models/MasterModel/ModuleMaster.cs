@@ -16,5 +16,9 @@ namespace CbtAdminPanel.Models.MasterModel
 
         [NotMapped]
         public string? ProjectName { get; set; }
+
+
+        [NotMapped]
+        public string? UserName { get; set; }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CbtAdminPanel.Models.MasterModel.MasterSeries
 {
@@ -18,6 +19,9 @@ namespace CbtAdminPanel.Models.MasterModel.MasterSeries
         public int Createdby { get; set; }
 
         public bool Active { get; set; }
+
+        [NotMapped]
+        public string? UserName { get; set; }
 
     }
 }

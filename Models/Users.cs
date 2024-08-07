@@ -29,5 +29,8 @@ namespace CbtAdminPanel.Models
         public string? Name { get; set; }
         public int CreatedBy { get; set; }
         public DateTime CreatedDate { get; set; }
+
+        [NotMapped]
+        public string? UserName { get; set; }
     }
 }

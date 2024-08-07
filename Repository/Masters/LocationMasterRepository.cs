@@ -130,7 +130,7 @@ namespace CbtAdminPanel.Repository.Masters
 
                     #endregion
                     #region Query :GetList
-                    string CommandText = "  select *,CM.Name as CityName,CN.Name as CountryName from LocationMaster as LM LEFT join TP_CityMaster AS CM ON LM.City=CM.Id left join TP_CountryMaster as CN ON CN.Id = LM.Country";
+                    string CommandText = "  select *,CM.Name as CityName,CN.Name as CountryName,US.UserName As UserName from LocationMaster as LM LEFT join TP_CityMaster AS CM ON LM.City=CM.Id left join TP_CountryMaster as CN ON CN.Id = LM.Country left join Users as US on US.Id = LM.CreatedBy";
 
                     #endregion
                     var parameters = new

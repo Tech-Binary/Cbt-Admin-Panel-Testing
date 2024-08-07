@@ -35,5 +35,9 @@ namespace CbtAdminPanel.Models.MasterModel
 
         public string? CountryName { get; set; }
 
+        [NotMapped]
+
+        public string? UserName { get; set; }
+
     }
 }

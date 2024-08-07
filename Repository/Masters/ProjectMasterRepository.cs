@@ -64,7 +64,7 @@ namespace CbtAdminPanel.Repository.Masters
 
                     #endregion
                     #region Query :GetList
-                    string CommandText = "  select *,(LM.Locationprefix + LM.LocationId)as LocationName from ProjectMaster as PM left join LocationMaster as LM on LM.Id =PM.LocationId ";
+                    string CommandText = "  select *,(LM.Locationprefix + LM.LocationId)as LocationName,US.UserName As UserName from ProjectMaster as PM left join LocationMaster as LM on LM.Id =PM.LocationId left join Users as US on US.Id = LM.CreatedBy ";
 
                     #endregion
                     var parameters = new

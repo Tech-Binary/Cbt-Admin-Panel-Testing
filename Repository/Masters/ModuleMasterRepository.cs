@@ -64,7 +64,7 @@ namespace CbtAdminPanel.Repository.Masters
 
                     #endregion
                     #region Query :GetList
-                    string CommandText = "select *,PM.ProjectName from ModuleMaster as MM LEFT JOIN ProjectMaster as PM ON MM.ProjectId = PM.Id";
+                    string CommandText = "select *,PM.ProjectName as ProjectName,US.UserName As UserName  from ModuleMaster as MM LEFT JOIN ProjectMaster as PM ON MM.ProjectId = PM.Id left join Users as US on US.Id = LM.CreatedBy";
 
                     #endregion
                     var parameters = new
