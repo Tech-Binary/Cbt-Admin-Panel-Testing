@@ -41,6 +41,18 @@ namespace CbtAdminPanel.Controllers
             return res;
         }
 
+        [HttpPost]
+        [Route("AssignRole")]
+        public ResponseModel AssignRole([FromBody] Users user)
+        {
+            return _repository.AssignLocation(user);
+        }
 
+        [HttpGet]
+        [Route("AssignLoaction")]
+        public ResponseModel AssignLoaction(int id)
+        {
+            return _repository.UserAssignLoactionList(id);
+        }
     }
 }

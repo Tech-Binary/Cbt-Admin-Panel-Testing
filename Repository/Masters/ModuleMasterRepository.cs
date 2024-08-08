@@ -72,7 +72,7 @@ namespace CbtAdminPanel.Repository.Masters
 
                     };
 
-                    ModelList = DB.QuerySql<ModuleMaster>(CommandText, parameters).ToList();
+                    ModelList = DB.QuerySql<ModuleMaster>(CommandText, parameters).ToList() ;
                     return ModelList;
                 }
             }

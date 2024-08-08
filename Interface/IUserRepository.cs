@@ -9,5 +9,9 @@ namespace CbtAdminPanel.Interface
         List<Users> GetUserList();
 
         ResponseModel CreateUser(Users user);
+
+        ResponseModel AssignLocation(Users user);
+
+        ResponseModel UserAssignLoactionList(int UserId);
     }
 }

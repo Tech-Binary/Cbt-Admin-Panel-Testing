@@ -95,5 +95,66 @@ namespace CbtAdminPanel.Repository
             }
             return responseModel;
         }
+
+        public ResponseModel AssignLocation(Users user)
+        {
+            ResponseModel responseModel = new ResponseModel();
+            try
+            {
+                var usercheck = _context.Users.Where(x => x.Id == user.Id).FirstOrDefault();
+                if (usercheck == null)
+                {
+                    responseModel.Message = "UserName Not exits here";
+                    responseModel.Status = StatusEnums.warning.ToString();
+                    return responseModel;
+                }
+                usercheck.LocationId = user.LocationId;
+                _context.Update(usercheck);
+                _context.SaveChanges();
+                responseModel.Message = "Location Assign Successfully";
+                responseModel.Status = StatusEnums.success.ToString();
+            }
+            catch (Exception ex)
+            {
+                responseModel.Message = ex.Message;
+                responseModel.Status = StatusEnums.error.ToString();
+            }
+            return responseModel;
+        }
+
+        public ResponseModel UserAssignLoactionList(int UserId)
+        {
+            ResponseModel responseModel = new ResponseModel();
+            try
+            {
+
+                var user = _context.Users.Where(x => x.Id == UserId).FirstOrDefault();
+                if (user.LocationId != null || user.LocationId != "")
+                {
+                    int[] idArray = user.LocationId.Split(',').Select(int.Parse).ToArray();
+                    var res = (from U in _context.LocationMaster
+                               where idArray.Contains(U.Id)
+                               select new
+                               {
+                                   Locationname = U.LocationName,
+                                   LoactionId = U.Locationprefix + U.LocationId,
+                                   EmpolyeName = user.FullName
+                               }).ToList();
+                    responseModel.Status= StatusEnums.success.ToString();
+                    responseModel.Data = res;
+                }
+                else
+                {
+                    responseModel.Message = "No Location Assign";
+                    responseModel.Status = StatusEnums.warning.ToString();
+                }
+            }
+            catch(Exception ex)
+            {
+                responseModel.Message = ex.Message;
+                responseModel.Status= StatusEnums.error.ToString();
+            }
+            return responseModel;
+        }
     }
 }
