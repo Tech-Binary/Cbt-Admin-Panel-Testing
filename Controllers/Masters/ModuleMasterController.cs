@@ -66,7 +66,7 @@ namespace CbtAdminPanel.Controllers.Masters
         [HttpPost]
         [Route("ModuleMasterList")]
 
-        public async Task<List<ModuleMaster>> ProjectMasterList()
+        public async Task<List<ModuleMaster>> ModuleMasterList()
         {
             return await _repository.ModuleMasterList();
         }

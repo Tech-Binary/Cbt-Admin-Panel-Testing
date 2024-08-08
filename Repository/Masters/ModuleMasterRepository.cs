@@ -11,12 +11,13 @@ namespace CbtAdminPanel.Repository.Masters
     {
         private readonly MyDbcontext _context;
         public readonly IConfiguration _configuration;
+        public readonly IHttpContextAccessor _contextAccessor;
 
-        public ModuleMasterRepository(MyDbcontext context, IConfiguration configuration)
+        public ModuleMasterRepository(MyDbcontext context, IConfiguration configuration, IHttpContextAccessor contextAccessor)
         {
             _context = context;
             _configuration = configuration;
-
+            _contextAccessor = contextAccessor;
         }
 
         public ResponseModel AddData(ModuleMaster moduleMaster)
@@ -24,9 +25,14 @@ namespace CbtAdminPanel.Repository.Masters
             ResponseModel responseModel = new ResponseModel();
             try
             {
+                var CHECK= _context.ModuleMaster.Where(m => m.ModuleName == moduleMaster.ModuleName && m.ProjectId ==m.ProjectId).ToList();
+                if (CHECK.Count != 0)
+                {
+                    responseModel.Message = "Module Name already exits";
+                    responseModel.Status = StatusEnums.error.ToString();
+                }
                 moduleMaster.CreatedDate = DateTime.Now;
-                moduleMaster.CreatedBy = 1;
-                moduleMaster.ProjectId = 1;
+                moduleMaster.CreatedBy = Convert.ToInt32(_contextAccessor.HttpContext.Session.GetString("UserID"));
                 _context.Add(moduleMaster);
                 _context.SaveChanges();
                 if (moduleMaster.Id > 0)
@@ -64,7 +70,7 @@ namespace CbtAdminPanel.Repository.Masters
 
                     #endregion
                     #region Query :GetList
-                    string CommandText = "select *,PM.ProjectName as ProjectName,US.UserName As UserName  from ModuleMaster as MM LEFT JOIN ProjectMaster as PM ON MM.ProjectId = PM.Id left join Users as US on US.Id = LM.CreatedBy";
+                    string CommandText = "select *,PM.ProjectName as ProjectName,US.UserName As UserName  from ModuleMaster as MM LEFT JOIN ProjectMaster as PM ON MM.ProjectId = PM.Id left join Users as US on US.Id = MM.CreatedBy";
 
                     #endregion
                     var parameters = new
