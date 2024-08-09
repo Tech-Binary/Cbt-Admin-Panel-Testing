@@ -36,7 +36,7 @@ namespace CbtAdminPanel.Controllers
         [Route("ProjectInAddModuleRights")]
         public ResponseModel ProjectInAddModuleRights(List<AssignRights> assigns)
         {
-            return _context.ProjectInAddModuleRights(assigns);
+            return _Repository.ProjectInAddModuleRights(assigns);
         }
 
     }
