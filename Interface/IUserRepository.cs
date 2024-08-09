@@ -13,5 +13,6 @@ namespace CbtAdminPanel.Interface
         ResponseModel AssignLocation(Users user);
 
         ResponseModel UserAssignLoactionList(int UserId);
+
     }
 }

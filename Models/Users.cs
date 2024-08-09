@@ -15,6 +15,8 @@ namespace CbtAdminPanel.Models
         public int AccountStatus { get; set; }
         public int CreatedBy { get; set; }
         public DateTime CreatedDate { get; set; }
+        [NotMapped]
+        public string? PageRights { get; set; }
 
         public string? LocationId { get; set; }
 

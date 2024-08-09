@@ -54,6 +54,7 @@ builder.Services.AddScoped<IAccountRepository, AccountRepository>();
 builder.Services.AddScoped<IRoleRepository, RoleRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+builder.Services.AddScoped<IAssignRightsRepository, AssignRightsRepository>();
 
 
 builder.Services.AddSession(options =>

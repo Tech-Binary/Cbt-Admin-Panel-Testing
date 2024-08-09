@@ -20,5 +20,9 @@ namespace CbtAdminPanel.Models.MasterModel
 
         [NotMapped]
         public string? UserName { get; set; }
+        [NotMapped]
+        public bool  IsView { get; set; }
+        [NotMapped]
+        public bool  IsEdit { get; set; }
     }
 }

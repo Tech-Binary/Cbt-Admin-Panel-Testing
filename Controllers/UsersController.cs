@@ -54,5 +54,7 @@ namespace CbtAdminPanel.Controllers
         {
             return _repository.UserAssignLoactionList(id);
         }
+
+
     }
 }
